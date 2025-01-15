@@ -7,9 +7,9 @@
     "./**/*.scss"
   ],
   "keywords": [
-    "assets",
-    "asset-scss",
-    "asset-scss-function"
+    "asset",
+    "scss",
+    "function"
   ],
   "author": {
     "name": "bu0nq",
