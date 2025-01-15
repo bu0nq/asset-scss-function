@@ -1,6 +1,6 @@
 {
   "name": "@bu0nq/asset-scss-function",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Package for integrating Asset SCSS Function",
   "main": "function.scss",
   "files": [
