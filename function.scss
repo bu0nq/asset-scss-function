@@ -1,0 +1,17 @@
+@use 'sass:math';
+
+@function from-px-to-rem($value, $root-font-size: 16px) {
+  $value: math.div($value, $root-font-size) * 1rem;
+
+  @return $value;
+}
+
+@function from-px-to-rem-clamp($min-size, $max-size, $min-breakpoint, $max-breakpoint, $unit: vw) {
+  $slope: math.div($max-size - $min-size, $max-breakpoint - $min-breakpoint);
+  $slope-to-unit: $slope * 100;
+  $intercept-rem: from-px-to-rem($min-size - $slope * $min-breakpoint);
+  $min-size-rem: from-px-to-rem($min-size);
+  $max-size-rem: from-px-to-rem($max-size);
+
+  @return clamp(#{$min-size-rem}, #{$slope-to-unit}#{$unit} + #{$intercept-rem}, #{$max-size-rem});
+}
