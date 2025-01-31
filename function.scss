@@ -10,21 +10,7 @@
   @return clamp(#{$min-size}, #{$slope-to-unit}#{$unit} + #{$intercept}, #{$max-size});
 }
 
-@function getClampInRem($min-size, $max-size, $min-breakpoint, $max-breakpoint, $unit: vw) {
-  $slope: math.div($max-size - $min-size, $max-breakpoint - $min-breakpoint);
-  $slope-to-unit: $slope * 100;
-  $intercept: toRem($min-size - $slope * $min-breakpoint);
-  $min-size: toRem($min-size);
-  $max-size: toRem($max-size);
-
-  @return clamp(#{$min-size}, #{$slope-to-unit}#{$unit} + #{$intercept}, #{$max-size});
-}
-
-@function getGridColumnSize($column, $gutter, $number) {
-  @return calc(($column * $number) - $gutter);
-}
-
-@function toRem($value, $root-font-size: 16px) {
+@function fromPxToRem($value, $root-font-size: 16px) {
   $value: math.div($value, $root-font-size) * 1rem;
 
   @return $value;
